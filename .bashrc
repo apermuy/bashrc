@@ -89,11 +89,6 @@ alias ls='ls -l'
 alias w='cd /home/apermuy/www/drupales'
 #
 #
-#Servers
-#alias vps='ssh apermuy@server.org'
-#alias mugardes='ssh apermuy@server1.org'
-#
-#
 #Drupaladas
 alias drush='cd /home/apermuy/www/drupales/openlayers && php drush/drush.php'
 #
@@ -153,7 +148,7 @@ NC="$(tput sgr0)" # No Color
 PS1='\[$LightGreen\]\u@\[$Blue\]\h \W\$\[$NC\]'
 #
 #
-#
+#Tunning de colores para distintos tipos de ficheros
 alias ls='ls --color=auto'
 LS_COLORS='no=0'
 LS_COLORS=$LS_COLORS:'fi=0'
@@ -165,6 +160,7 @@ LS_COLORS=$LS_COLORS:'*.php=1;35'
 LS_COLORS=$LS_COLORS:'*.conf=1;36'
 LS_COLORS=$LS_COLORS:'ex=0'
 export LS_COLORS
+#
 #
 #Funcion para extraer 
 function extraer()
