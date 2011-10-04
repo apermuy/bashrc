@@ -1,3 +1,8 @@
+#################################################################################
+#
+#@apermuy  .bashrc
+#
+#################################################################################
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -8,7 +13,6 @@
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
-#Debian Rulez
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -161,3 +165,30 @@ LS_COLORS=$LS_COLORS:'*.php=1;35'
 LS_COLORS=$LS_COLORS:'*.conf=1;36'
 LS_COLORS=$LS_COLORS:'ex=0'
 export LS_COLORS
+#
+#Funcion para extraer 
+function extraer()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2) tar xvjf $1 ;;
+      *.tar.gz) tar xvzf $1 ;;
+      *.bz2) bunzip2 $1 ;;
+      *.rar) unrar x $1 ;;
+      *.gz) gunzip $1 ;;
+      *.tar) tar xvf $1 ;;
+      *.tbz2) tar xvjf $1 ;;
+      *.tgz) tar xvzf $1 ;;
+      *.zip) unzip $1 ;;
+      *.Z) uncompress $1 ;;
+      *.7z) 7z x $1 ;;
+      *) echo "'$1' no se puede extraer con la funcion de bashrc>extract<" ;;
+      esac
+  else
+    echo "'$1' no es un fichero válido."
+  fi
+}
+#
+#
+#Funcion que muestra los procesos del usuario
+function misps() { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
